@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="music-box">
+    index page
+    <hr>
+    <div class='clearfix'>
+      <form action="/search" method="post" class='left' style="padding-top:10px;">
+        <input type="text" name='id' placeholder="please input music id" />
+        <button type="submit">Search Singer Here</button>
+      </form>
+      <a class='add-btn' href="/add">click here to add a song</a>
+    </div>
+    
+    <table>
+        <thead>
+        <th>Id</th>
+        <th>Music</th>
+        <th>Singer</th>
+        <th>High</th>
+        <th>Operation</th>
+        </thead>
+        <tbody>
+        <% musicList.forEach(function(item){ %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.name %></td>
+          <td><%= item.singer %></td>
+          <td>
+            <% if(item.isHightRate){%>
+            <input disabled type="radio" checked>Yes
+            <input disabled type="radio">No
+            <%}else{%>
+            <input disabled type="radio">Yes
+            <input disabled type="radio" checked>No
+            <%} %>
+          </td>
+          <td>
+            <a href="/edit/<%= item.id %>">edit</a>
+            <a href="javascript:remove('/remove/<%= item.id %>')">delete</a>
+          </td>
+        </tr>
+        <%}); %>
+        </tbody>
+      </table>
+  </div>
+</body>
+</html>
+<script src="/assets/lib/jquery/dist/jquery.js"></script>
+<script src='/assets/js/index.js'></script>

@@ -1,0 +1,30 @@
+.music-box {
+  width: 700px;
+  margin:100px auto;
+}
+.music-box table{
+  width:100%;
+  text-align: center;
+}
+.music-box .add-btn {
+  float:right;
+  padding: 10px 0;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float: right
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: ' ';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
